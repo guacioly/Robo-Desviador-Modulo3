@@ -41,6 +41,14 @@ Como estamos utilizando o CI L293D solto na protoboard, a montagem exige atenç�
 * **IN3 (Pino 10):** Porta 5 - Direção Motor B
 * **IN4 (Pino 15):** Porta 4 - Direção Motor B
 
+<br>
+
+<div align="center">
+  <img src="Copy%20of%20SEGUIDOR%20DE%20LINHA.png" alt="Diagrama do Circuito" width="800"/>
+</div>
+
+<br>
+
 ## 🚧 Nosso Cronograma (To-Do)
 Acompanhe o nosso progresso durante as aulas:
 
@@ -52,12 +60,11 @@ Acompanhe o nosso progresso durante as aulas:
 - [ ] Upload do código reativo final.
 - [ ] Testes práticos de desvio e calibração de velocidade e tempo de giro.
 
-
 ## 👥 Equipe (Módulo 3)
-* João lucas franca chagas
-* Gustavo lima acioly
-* Gabriella sousa
-* Giovanne brendo coelho dias pereira
+* Gabriella Sousa
+* Giovanne Brendo Coelho Dias Pereira
+* Gustavo Lima Acioly
+* João Lucas Franca Chagas
 
 ---
 *Repositório em constante atualização para a apresentação de avanços do curso de Robótica.*
