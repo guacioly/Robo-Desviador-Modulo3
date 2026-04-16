@@ -44,9 +44,11 @@ Como estamos utilizando o CI L293D solto na protoboard, a montagem exige atenç�
 <br>
 
 <div align="center">
-  <img src="Copy%20of%20SEGUIDOR%20DE%20LINHA.png" alt="Diagrama do Circuito" width="800"/>
+  <img src="Copy%20of%20Circuito%20Robô%20que%20desvia%20de%20obstáculos.png" alt="Circuito do Robô" width="700px">
+  <p align="center">
+    <em>Esquema elétrico do Robô: Arduino Uno + L293D + Sensor Ultrassônico</em>
+  </p>
 </div>
-
 <br>
 ## 💻 Código Fonte Principal
 
