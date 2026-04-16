@@ -39,6 +39,6 @@ Abaixo está a lista dos componentes necessários para a montagem:
 ## 👥 Equipe (Módulo 3)
 * João Lucas Franca Chagas
 * Gustavo Lima Acioly
-*Gabriella Sousa Lima
-*Giovanni Brendo Coelho Dias Pereira
+* Gabriella Sousa Lima
+* Giovanni Brendo Coelho Dias Pereira
 ---
