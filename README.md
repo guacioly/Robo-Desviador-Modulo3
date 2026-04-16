@@ -110,6 +110,10 @@ void loop() {
   }
 }
 
+</div>
+
+<br>
+
 ## 🚧 Nosso Cronograma (To-Do)
 Acompanhe o nosso progresso durante as aulas:
 
