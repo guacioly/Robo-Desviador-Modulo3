@@ -40,7 +40,6 @@ Como estamos utilizando o CI L293D solto na protoboard, a montagem exige atenç�
 * **EN3,4 (Pino 9):** Porta 10 (PWM) - Controle de velocidade Motor B
 * **IN3 (Pino 10):** Porta 5 - Direção Motor B
 * **IN4 (Pino 15):** Porta 4 - Direção Motor B
-* *Atenção: O entalhe/meia-lua do CI deve ficar voltado para a orientação correta do pino 1 na protoboard.*
 
 ## 🚧 Nosso Cronograma (To-Do)
 Acompanhe o nosso progresso durante as aulas:
@@ -55,10 +54,10 @@ Acompanhe o nosso progresso durante as aulas:
 
 
 ## 👥 Equipe (Módulo 3)
-* joão lucas franca chagas
-* gustavo lima acioly
-* gabriella sousa
-* giovanne brendo coelho dias pereira
+* João lucas franca chagas
+* Gustavo lima acioly
+* Gabriella sousa
+* Giovanne brendo coelho dias pereira
 
 ---
 *Repositório em constante atualização para a apresentação de avanços do curso de Robótica.*
