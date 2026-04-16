@@ -8,91 +8,63 @@
 <br>
 
 ## 📖 Sobre o Projeto
-Este repositório contém a documentação e o código-fonte do **Projeto Final do Módulo 3**. O objetivo é criar um robô móvel autônomo capaz de identificar obstáculos via sensor ultrassônico e realizar desvios automáticos utilizando o **CI L293D**.
+Este repositório contém o planejamento, código-fonte e documentação do **Projeto Final do Módulo 3 - Conceitos Básicos de Robótica**. 
 
-## 🎯 Funcionalidades
-- **Movimentação Inteligente:** O robô avança até encontrar um bloqueio.
-- **Leitura de Distância:** Sensor HC-SR04 monitora objetos em tempo real.
-- **Desvio Reativo:** Ao detectar um obstáculo a menos de 20cm, o robô para e vira à direita.
+Atualmente, estamos na fase de estruturação. Nosso objetivo final é aplicar os conceitos de controle de atuadores e percepção de ambiente para construir um robô móvel autônomo, capaz de detectar e desviar de obstáculos em tempo real utilizando o circuito integrado L293D e o sensor ultrassônico.
 
-## 🛠️ Hardware Utilizado
-| Componente | Função |
-| :--- | :--- |
-| **Arduino Uno** | Microcontrolador (Cérebro do robô) |
-| **CI L293D** | Ponte H DIP-16 para controle dos motores |
-| **Sensor HC-SR04** | Medição de distância por ultrassom |
-| **Motores DC (2x)** | Tração e locomoção |
-| **Bateria 9V** | Alimentação do sistema |
+## 🎯 Funcionalidades Planejadas
+- **Navegação Autônoma:** O robô se deslocará continuamente pelo ambiente.
+- **Detecção de Obstáculos:** Leitura constante do ambiente utilizando pulsos ultrassônicos (Sensor HC-SR04).
+- **Tomada de Decisão e Desvio:** Lógica reativa de controle onde o robô avalia a distância segura (ex: `< 20 cm`) para frear, girar à direita e buscar uma nova rota livre.
+- **Controle de Potência (CI L293D):** Utilização da Ponte H em formato DIP-16 diretamente na protoboard para controlar o sentido de rotação dos motores e ajustar a velocidade via PWM.
 
-## 🔌 Esquema de Ligações
-* **Ponte H (L293D):** Motores nos pinos 9, 7, 6 (A) e 10, 5, 4 (B).
-* **Sensor Ultrassônico:** TRIG (12) e ECHO (11).
+## 🛠️ Hardware a ser Utilizado
+Abaixo está a lista dos componentes que usaremos para a montagem:
+
+| Quantidade | Componente |
+| :---: | :--- |
+| 1x | Arduino Uno (ou Nano) |
+| 1x | Chassi robótico (2WD) |
+| 2x | Motor DC (TT Motor) |
+| 1x | **CI L293D (Ponte H DIP-16)** |
+| 1x | **Sensor Ultrassônico (HC-SR04)** |
+| 1x | Bateria 9V (ou Suporte 4xAA) |
+| 1x | Protoboard (400 pontos) e Jumpers |
+
+## 🔌 Esquema de Ligações (L293D DIP-16)
+Como estamos utilizando o CI L293D solto na protoboard, a montagem exige atenção redobrada aos 16 pinos. A pinagem principal que utilizaremos no Arduino é:
+
+* **EN1,2 (Pino 1):** Porta 9 (PWM) - Controle de velocidade Motor A
+* **IN1 (Pino 2):** Porta 7 - Direção Motor A
+* **IN2 (Pino 7):** Porta 6 - Direção Motor A
+* **EN3,4 (Pino 9):** Porta 10 (PWM) - Controle de velocidade Motor B
+* **IN3 (Pino 10):** Porta 5 - Direção Motor B
+* **IN4 (Pino 15):** Porta 4 - Direção Motor B
 
 <br>
 
 <div align="center">
-  <img src="circuito.png" alt="Diagrama do Circuito" width="800"/>
+  <img src="Copy%20of%20SEGUIDOR%20DE%20LINHA.png" alt="Diagrama do Circuito" width="800"/>
 </div>
 
 <br>
 
-## 💻 Código Fonte Principal
-```cpp
-// ■■ Pinos do CI L293D ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-#define EN12 9 // Enable Motor A (PWM)
-#define IN1 7 // Direção Motor A – entrada 1
-#define IN2 6 // Direção Motor A – entrada 2
-#define EN34 10 // Enable Motor B (PWM)
-#define IN3 5 // Direção Motor B – entrada 1
-#define IN4 4 // Direção Motor B – entrada 2
+## 🚧 Nosso Cronograma (To-Do)
+Acompanhe o nosso progresso durante as aulas:
 
-// ■■ Pinos do Sensor Ultrassônico ■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-#define TRIG 12
-#define ECHO 11
-#define DIST_MIN 20 // distância mínima em cm
+- [x] Criação do repositório no GitHub e planejamento estrutural.
+- [ ] Separação e testes individuais dos componentes eletrônicos.
+- [ ] Teste de medição de distância com o sensor HC-SR04 no Arduino.
+- [ ] Montagem do circuito do CI L293D na protoboard .
+- [ ] Integração do hardware no chassi.
+- [ ] Upload do código reativo final.
+- [ ] Testes práticos de desvio e calibração de velocidade e tempo de giro.
 
-void setup() {
-  pinMode(EN12, OUTPUT); pinMode(EN34, OUTPUT);
-  pinMode(IN1, OUTPUT); pinMode(IN2, OUTPUT);
-  pinMode(IN3, OUTPUT); pinMode(IN4, OUTPUT);
-  pinMode(TRIG, OUTPUT); pinMode(ECHO, INPUT);
-  
-  analogWrite(EN12, 200); 
-  analogWrite(EN34, 200);
-}
+## 👥 Equipe (Módulo 3)
+* Gabriella Sousa
+* Giovanne Brendo Coelho Dias Pereira
+* Gustavo Lima Acioly
+* João Lucas Franca Chagas
 
-void moverFrente() {
-  digitalWrite(IN1, HIGH); digitalWrite(IN2, LOW); 
-  digitalWrite(IN3, HIGH); digitalWrite(IN4, LOW); 
-}
-
-void parar() {
-  digitalWrite(IN1, LOW); digitalWrite(IN2, LOW);
-  digitalWrite(IN3, LOW); digitalWrite(IN4, LOW);
-}
-
-void virarDireita() {
-  digitalWrite(IN1, LOW); digitalWrite(IN2, HIGH); // Motor A ré
-  digitalWrite(IN3, HIGH); digitalWrite(IN4, LOW); // Motor B frente
-  delay(500);
-}
-
-long medirDistancia() {
-  digitalWrite(TRIG, LOW); delayMicroseconds(2);
-  digitalWrite(TRIG, HIGH); delayMicroseconds(10); 
-  digitalWrite(TRIG, LOW);
-  long duracao = pulseIn(ECHO, HIGH);
-  if (duracao == 0) return 999; 
-  return duracao * 0.034 / 2;
-}
-
-void loop() {
-  long dist = medirDistancia();
-  if (dist < DIST_MIN) {
-    parar();
-    delay(300);
-    virarDireita();
-  } else {
-    moverFrente();
-  }
-}
+---
+*Repositório em constante atualização para a apresentação de avanços do curso de Robótica.*
