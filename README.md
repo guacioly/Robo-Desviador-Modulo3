@@ -48,15 +48,17 @@ Acompanhe o nosso progresso durante as aulas:
 - [x] Criação do repositório no GitHub e planejamento estrutural.
 - [ ] Separação e testes individuais dos componentes eletrônicos.
 - [ ] Teste de medição de distância com o sensor HC-SR04 no Arduino.
-- [ ] Montagem do circuito do CI L293D na protoboard com atenção às alimentações separadas (VCC1 e VCC2).
+- [ ] Montagem do circuito do CI L293D na protoboard .
 - [ ] Integração do hardware no chassi.
 - [ ] Upload do código reativo final.
 - [ ] Testes práticos de desvio e calibração de velocidade e tempo de giro.
-- [ ] Gravação do vídeo de demonstração.
+
 
 ## 👥 Equipe (Módulo 3)
-* **[Seu Nome]**
-* **[Nome do Colega]**
+* joão lucas franca chagas
+* gustavo lima acioly
+* gabriella sousa
+* giovanne brendo coelho dias pereira
 
 ---
 *Repositório em constante atualização para a apresentação de avanços do curso de Robótica.*
