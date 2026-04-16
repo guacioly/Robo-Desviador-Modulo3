@@ -8,7 +8,7 @@
 <br>
 
 ## 📖 Sobre o Projeto
-Este repositório contém a documentação e o código-fonte do **Projeto Final do Módulo 3**. O objetivo é integrar hardware e software para criar um robô móvel autônomo capaz de navegar em um ambiente, identificar obstáculos via sensor ultrassônico e realizar desvios automáticos utilizando o **CI L293D**.
+Este repositório contém a documentação e o código-fonte do **Projeto Final do Módulo 3**. O objetivo é criar um robô móvel autônomo capaz de identificar obstáculos via sensor ultrassônico e realizar desvios automáticos utilizando o **CI L293D**.
 
 ## 🎯 Funcionalidades
 - **Movimentação Inteligente:** O robô avança até encontrar um bloqueio.
@@ -16,27 +16,17 @@ Este repositório contém a documentação e o código-fonte do **Projeto Final 
 - **Desvio Reativo:** Ao detectar um obstáculo a menos de 20cm, o robô para e vira à direita.
 
 ## 🛠️ Hardware Utilizado
-A montagem utiliza componentes discretos para maior aprendizado sobre eletrônica:
-
 | Componente | Função |
 | :--- | :--- |
 | **Arduino Uno** | Microcontrolador (Cérebro do robô) |
 | **CI L293D** | Ponte H DIP-16 para controle dos motores |
 | **Sensor HC-SR04** | Medição de distância por ultrassom |
 | **Motores DC (2x)** | Tração e locomoção |
-| **Chassi 2WD** | Estrutura física do robô |
-| **Protoboard** | Base para montagem do circuito do CI |
 | **Bateria 9V** | Alimentação do sistema |
 
 ## 🔌 Esquema de Ligações
-As conexões no Arduino seguem a configuração abaixo:
-
-* **Ponte H (L293D):**
-  * Motores A: Pinos **9** (EN), **7** (IN1) e **6** (IN2).
-  * Motores B: Pinos **10** (EN), **5** (IN3) e **4** (IN4).
-* **Sensor Ultrassônico:**
-  * **TRIG:** Pino **12**
-  * **ECHO:** Pino **11**
+* **Ponte H (L293D):** Motores nos pinos 9, 7, 6 (A) e 10, 5, 4 (B).
+* **Sensor Ultrassônico:** TRIG (12) e ECHO (11).
 
 <br>
 
@@ -47,8 +37,6 @@ As conexões no Arduino seguem a configuração abaixo:
 <br>
 
 ## 💻 Código Fonte Principal
-O código utiliza funções modulares para facilitar a leitura e manutenção:
-
 ```cpp
 // ■■ Pinos do CI L293D ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 #define EN12 9 // Enable Motor A (PWM)
@@ -69,13 +57,13 @@ void setup() {
   pinMode(IN3, OUTPUT); pinMode(IN4, OUTPUT);
   pinMode(TRIG, OUTPUT); pinMode(ECHO, INPUT);
   
-  analogWrite(EN12, 200); // velocidade Motor A
-  analogWrite(EN34, 200); // velocidade Motor B
+  analogWrite(EN12, 200); 
+  analogWrite(EN34, 200);
 }
 
 void moverFrente() {
-  digitalWrite(IN1, HIGH); digitalWrite(IN2, LOW); // Motor A frente
-  digitalWrite(IN3, HIGH); digitalWrite(IN4, LOW); // Motor B frente
+  digitalWrite(IN1, HIGH); digitalWrite(IN2, LOW); 
+  digitalWrite(IN3, HIGH); digitalWrite(IN4, LOW); 
 }
 
 void parar() {
@@ -94,7 +82,7 @@ long medirDistancia() {
   digitalWrite(TRIG, HIGH); delayMicroseconds(10); 
   digitalWrite(TRIG, LOW);
   long duracao = pulseIn(ECHO, HIGH);
-  if (duracao == 0) return 999; // guarda: sem retorno = longe
+  if (duracao == 0) return 999; 
   return duracao * 0.034 / 2;
 }
 
